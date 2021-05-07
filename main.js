@@ -18,7 +18,7 @@ function clickHandler(text) {
     });
 }
 
-btnTranslate.addEventListener("click", function clickHandler() {
+btnTranslate.addEventListener("click", function clickHandler(){(
     
     clickHandler(txtInput.value);
 });
