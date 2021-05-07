@@ -19,6 +19,7 @@ body {
     background-image: url(/minionbanana.jpg);
     background-position: top left;
     background-repeat: round;
+    font-size: larger;
 }
 
 nav {
@@ -61,12 +62,13 @@ button {
 
 #translate-output {
     box-sizing: border-box;
+    color: rgb(12, 0, 121);
     width: 100%;
     min-height: 10vh;
     max-height: 20vh;
     overflow:scroll;
     border: 1px solid var(--black);
-    background-color: rgba(205, 120, 50, 0.726);
+    background-color: rgba(53, 48, 45, 0.897);
 }
 
 footer {
