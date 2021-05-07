@@ -18,7 +18,6 @@ function clickHandler(text) {
     });
 }
 
-btnTranslate.addEventListener("click", function clickHandler(){(
-    
-    clickHandler(txtInput.value)
-});
+btnTranslate.addEventListener("click", function clickHandler(){    
+    clickHandler(txtInput.value);
+}
