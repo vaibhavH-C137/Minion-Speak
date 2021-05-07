@@ -20,5 +20,5 @@ function clickHandler(text) {
 
 btnTranslate.addEventListener("click", function clickHandler(){(
     
-    clickHandler(txtInput.value);
+    clickHandler(txtInput.value)
 });
