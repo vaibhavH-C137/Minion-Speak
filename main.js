@@ -1,23 +1,43 @@
+var txt_input = document.querySelector("#txt-input");
 var btnTranslate = document.querySelector("#btn-translate");
-var txtInput = document.querySelector("#txt-input");
-var outputField = document.querySelector("#translate-output");
+var outputDiv = document.querySelector("#translate-output");
 
-//function to construct a GET request
-function urlConstructor(text) {
-    return "https://api.funtranslations.com/translate/yoda.json?text=" + text;
+
+var serverURL = "https://api.funtranslations.com/translate/minion.json"
+
+
+function getTranslationURL(input) {
+    return serverURL + "?" + "text=" + input
 }
 
-//function which performs fetch call
-function clickHandler(text) {
+//to avoid failures due to server breakdown
+function errorHandler(error) {
+    console.log("error occured", error);
+    alert("something wrong with server");
+};
 
-    fetch(urlConstructor(text))
-    .then(function responseHandler(response) {return response.json()})
-    .then (function sendJSON(json){outputField.innerText =  json.contents.translated})
-    .catch((error) => {
-        console.log(error);
-    });
+function clickHandler() {
+    // outputDiv.innerText = "statr: "+txt_input.value;
+
+    //taking i/p by readin the value of the text store it, then
+    var inputText = txt_input.value 
+
+    //calling server for processing
+    //go and fetch url and give the input text to server's api
+    fetch(getTranslationURL(inputText)) 
+
+
+    // convert that response to json
+    .then(response => response.json())  
+    
+    //take out that response in json and, transalte the content and give its output in out_box  by innertext, 
+    .then(json => {
+            var translatedText = json.contents.translated;
+            outputDiv.innerText = translatedText; //output
+            // console.log(json.contents.translated)
+        })
+        .catch(errorHandler);
 }
 
-btnTranslate.addEventListener("click", function clickHandler(){    
-    clickHandler(txtInput.value);
-});
+//when a click occur pls do this functionality
+btnTranslate.addEventListener("click", clickHandler);
